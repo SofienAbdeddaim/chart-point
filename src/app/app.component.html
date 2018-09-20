@@ -1,20 +1,41 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<dx-chart
+  id="chart"
+  [rotated]="true"
+  [dataSource]="relativeMasses"
+  title="Competencies List"
+  [customizePoint]="customizePoint">
+  <dxi-series
+    type="scatter"
+    valueField="mass"
+    argumentField="name"
+    tagField="type">
+    <dxo-point [size]="20"></dxo-point>
+  </dxi-series>
 
+  <dxo-common-pane-settings>
+    <dxo-border [visible]="true"></dxo-border>
+  </dxo-common-pane-settings>
+
+  <dxo-common-axis-settings>
+    <dxo-grid [visible]="true"></dxo-grid>
+  </dxo-common-axis-settings>
+
+  <dxo-argument-axis
+    [tickInterval]="1">
+    <dxo-grid [visible]="true"></dxo-grid>
+    <dxo-minor-grid [visible]="true"></dxo-minor-grid>
+    <dxo-label
+      rotationAngle="20"
+      overlappingBehavior="rotate">
+    </dxo-label>
+  </dxo-argument-axis>
+
+  <dxi-value-axis
+    type="logarithmic"
+    title="Mass Relative to the Earth">
+  </dxi-value-axis>
+
+  <dxo-tooltip [enabled]="true"></dxo-tooltip>
+  <dxo-legend [visible]="false"></dxo-legend>
+  <dxo-export [enabled]="true"></dxo-export>
+</dx-chart>
